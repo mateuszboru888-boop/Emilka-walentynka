@@ -76,7 +76,28 @@
     @keyframes fadeIn {
         from {opacity: 0;}
         to {opacity: 1;}
-    }
+    }/* GALERIA ZDJĘĆ 2x3 */
+.photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.photos img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.photos img:hover {
+    transform: scale(1.05);
+}
 </style>
 
 </head>
@@ -84,7 +105,14 @@
 
 <div class="box">
     <h2>Emilko, czy zostaniesz moją walentynką? 💘</h2>
-
+<div class="photos">
+    <img src="E5BB104B-F1CE-49F4-A41F-FCD3915D.jpeg">
+    <img src="82E06E02-5ACC-4447-B82A-F35495C.jpeg">
+    <img src="F01CD068-3444-4AAD-8CD2-D9F9665.jpeg">
+    <img src="IMG_4156.jpeg">
+    <img src="IMG_4732.jpeg">
+    <img src="IMG_5403.jpeg">
+</div>
     <button id="yes" onclick="sayYes()">TAK</button>
     <button id="no" onmouseover="moveNo()">NIE</button>
 </div>
