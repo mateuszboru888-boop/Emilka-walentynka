@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Emilko czy zostaniesz moją walentynką?</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(#ffd6e8, #ffc5db);
+        height: 100vh;
+        text-align: center;
+    }
+
+    .box {
+        background: white;
+        padding: 40px;
+        width: 380px;
+        border-radius: 25px;
+        margin: 120px auto;
+        box-shadow: 0 0 25px rgba(0,0,0,0.15);
+        position: relative;
+        z-index: 10;
+        animation: fadeIn 1.2s ease;
+    }
+
+    h2 {
+        font-size: 24px;
+        color: #ff3d7a;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 15px 40px;
+        font-size: 18px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.2s;
+    }
+
+    #yes {
+        background: #ff4f8b;
+        color: white;
+        box-shadow: 0 0 10px rgba(255, 79, 139, 0.5);
+    }
+
+    #yes:hover {
+        transform: scale(1.07);
+    }
+
+    #no {
+        background: #e2e2e2;
+        position: absolute;
+    }
+
+    /* Spadające serduszka */
+    .heart {
+        position: fixed;
+        top: -10px;
+        color: #ff3d7a;
+        font-size: 22px;
+        animation: fall linear forwards;
+        opacity: 0.8;
+    }
+
+    @keyframes fall {
+        from { transform: translateY(-10px) rotate(0deg); }
+        to { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+</style>
+
+</head>
+<body>
+
+<div class="box">
+    <h2>Emilko, czy zostaniesz moją walentynką? 💘</h2>
+
+    <button id="yes" onclick="sayYes()">TAK</button>
+    <button id="no" onmouseover="moveNo()">NIE</button>
+</div>
+
+<script>
+function moveNo() {
+    const btn = document.getElementById("no");
+    btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    btn.style.top = Math.random() * (window.innerHeight - 100) + "px";
+}
+
+function sayYes() {
+    document.body.innerHTML = `
+        <div class="box">
+            <h1 style="color:#ff3d7a;">Yaaaay! ❤️</h1>
+            <h2>Wiedziałem, że powiesz TAK 😍</h2>
+        </div>
+    `;
+}
+
+/* Serduszka spadające */
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.textContent = "❤️";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+</html>
